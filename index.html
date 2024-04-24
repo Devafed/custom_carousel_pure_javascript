@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Indian Sweet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varta:wght@300;400;500&amp;display=swap65">
+</head>
+<body>
+  <main>
+    <div class="main-content">
+      <h1>Wheels</h1>
+    </div>
+    <div class="container">
+        <div class="track">
+          <div class="item active">
+            <div class="item-img">
+                <img src="img/wheel-1.png">
+            </div>
+            <div class="item-content">
+                <h2>17-inch cast aluminum wheel, fully painted silver litho</h2>
+                <p>Standard on Touring FWD</p>
+                <h3>(WGU)</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-img">
+                <img src="img/wheel-2.png">
+            </div>
+            <div class="item-content">
+                <h2>17-inch cast aluminum diamond-cut wheel with Baltic gray pockets</h2>
+                <p>Standard on Touring FWD/Hybrid and Touring Hybrid</p>
+                <h3>(WJR)</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-img">
+                <img src="img/wheel-3.png">
+            </div>
+            <div class="item-content">
+                <h2>18-inch cast aluminum wheel with foreshadow finish</h2>
+                <p>Included with S Appearance package on Touring Hybrid, Touring Hybrid, and Limited Hybrid</p>
+                <h3>(WP6)</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-img">
+                <img src="img/wheel-4.png">
+            </div>
+            <div class="item-content">
+              <h2>17-inch cast aluminum wheel, fully painted silver litho</h2>
+              <p>Standard on Touring FWD</p>
+              <h3>(WGU)</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-img">
+                <img src="img/wheel-1.png">
+            </div>
+            <div class="item-content">
+              <h2>17-inch cast aluminum wheel, fully painted silver litho</h2>
+              <p>Standard on Touring FWD</p>
+              <h3>(WGU)</h3>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+      
+    <div class="btn-container">
+        <button class="btn-prev left"></button>
+        <button class="btn-next right"></button>
+    </div>
+  </main>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var position = 0;
+  const slidesToMove = 1;
+  const slidesToShow = 3;
+  const container = document.querySelector(".container");
+  const track = document.querySelector(".track");
+  const btnNext = document.querySelector(".btn-next");
+  const btnPrev = document.querySelector(".btn-prev");
+  const items = document.querySelectorAll(".item");
+  const itemWidth = container.clientWidth / slidesToShow;
+  const itemsCount = items.length;
+  const movePosition = slidesToMove * itemWidth;
+
+  items.forEach((item) => {
+    item.style.minWidth = `${itemWidth}px`;
+  });
+
+  const nextSlide = () => {
+    position = (position + slidesToMove) % itemsCount;
+    setPosition();
+  };
+
+  const prevSlide = () => {
+    position = (position - slidesToMove + itemsCount) % itemsCount;
+    setPosition();
+  };
+
+  btnNext.addEventListener("click", nextSlide);
+  btnPrev.addEventListener("click", prevSlide);
+
+  const setPosition = () => {
+    const displacement = -position * itemWidth;
+    track.style.transform = `translateX(${displacement}px)`;
+    updateActiveClass();
+    checkBtns();
+  };
+
+  const updateActiveClass = () => {
+    items.forEach((item, index) => {
+      if (index === position) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+  };
+
+  const checkBtns = () => {
+    btnPrev.disabled = position === 0;
+    btnNext.disabled = position >= itemsCount - slidesToShow;
+  };
+
+  checkBtns();
+});
+</script>
+</body>
+</html>

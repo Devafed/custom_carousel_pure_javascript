@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background: url("../img/bg-cover.png");
+    font-family: "Varta", sans-serif;
+    font-size: 14px;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-content{
+  text-align: center;
+}
+.main-content h1{
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 25px auto 0px;
+}
+.container {
+  width: 90%;
+  max-width: 90%;
+  overflow: hidden;
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  }
+  .track {
+    display: flex;
+    transition: all ease 0.3s;
+    justify-content: center;
+    align-items: center;
+  }
+  .item.active{
+    background: url("../img/wheel-bg.jpg");
+    border: 2px solid #C8C7C8;
+    transition: all ease 0.3s;
+  }
+  .item {
+    padding: 15px;
+    transition: all ease 0.3s;
+  }
+  .item-img{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .item-img img {
+    width: 40%;
+    transition: all ease 0.3s;
+}
+.item.active .item-img img {
+    width: 60%; 
+    transition: all ease 0.3s;
+}
+.item-content {
+    width: 80%;
+    margin: 0 auto;
+}
+  .item.active .item-content h2{
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    
+  }
+  .item.active .item-content p{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 80%;
+    margin: 0 auto 5px;
+  }
+  .item.active .item-content h3{
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .item .item-content h2{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    
+  }
+  .item .item-content p{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 80%;
+    margin: 0 auto 5px;
+  }
+  .item .item-content h3{
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .btn-container {
+    text-align: center;
+  }
+  
+  .btn-container .btn-next.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .btn-container .btn-prev.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  .btn-container .btn-prev{
+    position:absolute;
+    left: 3%;
+    top: 50%;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+  } 
+  .btn-container .btn-next{
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+  }
+  button:disabled.btn-prev,button:disabled.btn-next{
+    cursor:default !important;
+  }
+  button:disabled {
+    border: solid gray !important;
+    border-width: 0 2px 2px 0 !important;
+}
+
+@media screen and (min-width:1920px){
+  .container{
+    width: 1200px;
+  }
+  .btn-container .btn-prev {
+    position: absolute;
+    left: 25%;
+  }
+  .btn-container .btn-next {
+    position: absolute;
+    right: 25%;
+  }
+}
+
+@media screen and (max-width:1024px){
+  .container{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:768px){
+  .container{
+    width: 90%;
+  }
+}
